@@ -1,0 +1,20 @@
+<div>
+  <h2>{{ user.id ? 'Edit' : 'Add' }} User</h2>
+  <form (ngSubmit)="saveUser()">
+    <div>
+      <label>First Name:</label>
+      <input type="text" [(ngModel)]="user.firstName" name="firstName" required>
+    </div>
+    <div>
+      <label>Last Name:</label>
+      <input type="text" [(ngModel)]="user.lastName" name="lastName" required>
+    </div>
+    <div>
+      <label>User Type:</label>
+      <select [(ngModel)]="user.userTypeId" name="userTypeId" required>
+        <option *ngFor="let userType of userTypes" [value]="userType.id">{{ userType.type }}</option>
+      </select>
+    </div>
+    <button type="submit">{{ user.id ? 'Update' : 'Save' }} User</button>
+  </form>
+</div>
